@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('workflow', function () {
-	gulp.src('./css/sass/**/*.scss')
+	gulp.src('./css/sass/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
@@ -17,9 +17,9 @@ gulp.task('workflow', function () {
 		.pipe(cssnano())
 		.pipe(sourcemaps.write('./'))
 
-	.pipe(gulp.dest('./css/'))
+	.pipe(gulp.dest('./css'))
 });
 
 gulp.task('default', function () {
-	gulp.watch('./css/sass/**/*.scss', ['workflow']);
+	gulp.watch('./css/sass/*.scss', ['workflow']);
 });
