@@ -1,24 +1,25 @@
 $font-style: normal;
 $font-variant: normal;
 $font-weight: normal;
-$font-color: hsl(0,0,25%);
+$font-color: hsl(0,0,14%);
 $font-size: .85rem;
 $line-height: 1.5;
 $font-family: monospace;
 
 body {
+  background: rgb(245, 245, 245);
   color: $font-color;
   font-family: $font-family;
   font-size: $font-size;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 header {
   grid-area: a;
-  text-align: center;
 
   h1 {
+    display: inline-block;
     font-family: sans-serif;
     font-size: 5rem;
     font-weight: bold;
@@ -36,12 +37,14 @@ aside {
 main {
   display: grid;
   grid-area: c;
-  grid-template-columns: repeat(auto-fill, minmax(425px,1fr));
-  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 1rem;
 
   figure {
    display: block;
    margin: 0;
+   max-width: 400px;
   }
 }
 
@@ -51,15 +54,70 @@ main img {
 }
 
 footer {
+  color: hsl(0°, 0%, 75%);
+  font-family: sans-serif;
+  font-weight: bold;
   grid-area: d;
   margin: 2rem 0 0 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 60px auto auto 40px;
+  grid-template-areas:
+    "a"
+    "b"
+    "c"
+    "d";
+  margin: 0 10px;
+}
+
+  header {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+
+/*
+@media screen and (min-width: 1400px) {
+    .container {
+    display: grid;
+    grid-template-columns: 30% 20% 20% 30%;
+    grid-template-rows: 220px auto 160px;
+    grid-template-areas:
+      "a a b b"
+      "c c c c"
+      "d d d d";
+    margin: 0 auto;
+    width: 1400px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+    display: grid;
+    grid-template-columns: 30% 20% 20% 30%;
+    grid-template-rows: 180px auto 80px;
+    grid-template-areas:
+      "a a b b"
+      "c c c c"
+      "d d d d";
+    margin: 0 auto;
+    width: 960px;
+  }
+
+  header h1 {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (max-width: 680px) {
       .container {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 60px auto auto 40px;
+        grid-template-rows: 80px auto auto 40px;
         grid-template-areas:
           "a"
           "b"
@@ -76,22 +134,16 @@ footer {
       main {
         display: grid;
         grid-area: c;
-        grid-template-columns: repeat(auto-fill, 1fr));
+        grid-template-columns: 100%;
         grid-gap: 1rem;
 
-      }
-		}
+        figure {
+          max-width: 100%;
+        }
 
-@media screen and (min-width: 681px) {
-    .container {
-    display: grid;
-    grid-template-columns: 30% 20% 20% 30%;
-    grid-template-rows: 220px auto 160px;
-    grid-template-areas:
-      "a a b b"
-      "c c c c"
-      "d d d d";
-    margin: 0 auto;
-    width: 1560px;
+        img {
+          max-width: 100%;
+        }
   }
 }
+*/
