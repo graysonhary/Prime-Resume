@@ -28,12 +28,20 @@ body {
 img {
 	display: block;
 	border: 0;
+  border-radius: 5px;
 	max-width: 100%;
 	height: auto;
 }
 
 .site {
   margin: 2rem auto 0;
+}
+
+/* PHOTO GRID */
+.photo_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 }
 
 /* TYPOGRAPGHY */
@@ -59,7 +67,7 @@ h1 a:hover {
   transition: .2s;
 }
 
-nav {
+.nav {
   a {
     align-items: center;
     border-radius: 4px;
@@ -68,8 +76,7 @@ nav {
     font-weight: 600;
     height: 36px;
     justify-content: center;
-    margin-left: 4px;
-    min-width: 60px;
+    min-width: 20px;
     padding: 0 10px;
     position: relative;
     text-decoration: none;
@@ -207,4 +214,84 @@ If no grid support, limit width to 50em and center align
         padding: 0 .5rem;
       }
     }
+}
+
+/** OVERLAY NAVIGATION STYLES **/
+.overlay {
+height: 0%;
+width: 100%;
+position: fixed;
+z-index: 0;
+left: 0;
+top: 0;
+background-color: $gray;
+overflow-x: hidden; /* Disable horizontal scroll */
+transition: .75s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.open {
+  height: 100%;
+}
+
+.overlay-ul {
+  list-style: none;
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+position: relative;
+top: 5rem; /* 25% from the top */
+width: 100%; /* 100% width */
+text-align: center; /* Centered text/links */
+}
+
+/** HIDES TOP NAV TEXT LINKS **/
+@media screen and (max-width: 620px) {
+  .top-nav-ul {
+    display: none;
+    transition: 0.25s;
+  }
+}
+
+/** DISPLAYS HAMBURGER MENU FOR SMALLER SCREENS **/
+@media screen and (max-width: 620px) {
+  header {
+    flex-direction: row;
+    align-items: baseline;
+    position: relative;
+    z-index: 1;
+  }
+  .hamburger {
+      display: inline-block;
+      cursor: pointer;
+  }
+
+  .bar1, .bar2, .bar3 {
+    border-radius: 2px;
+    width: 30px;
+    height: 4px;
+    background-color: $black;
+    transition: 0.5s;
+}
+
+  .bar2 {
+    margin: 6px 0;
+  }
+
+  .change .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+      transform: rotate(-45deg) translate(-6px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
+  }
 }
