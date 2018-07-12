@@ -6,6 +6,7 @@ $line-height: 1.5;
 $open: 'Open Sans', sans-serif;
 $source: 'Source Code Pro', monospace;
 $black: rgb(60,60,60);
+$almost-black: rgb(120,120,120);
 $gray: rgb(245,245,245);
 $gold: rgb(218,178,82);
 $blue: rgb(82,177,226);
@@ -27,7 +28,7 @@ body {
 img {
 	display: block;
 	border: 0;
-	width: 100%;
+	max-width: 100%;
 	height: auto;
 }
 
@@ -42,25 +43,66 @@ h1,h2,h3,h4,h5 {
   margin: 0;
 }
 
-h1 {
+h1 a {
   color: $black;
+  display: inline-block;
   font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: .08ch;
+  text-decoration: none;
   text-transform: uppercase;
+  transition: .15s;
+}
+
+h1 a:hover {
+  opacity: .15;
+  transition: .2s;
 }
 
 nav {
   a {
-    border-bottom: $gold dotted 2px;
+    align-items: center;
+    border-radius: 4px;
     color: $black;
+    display: inline-flex;
     font-weight: 600;
+    height: 36px;
+    justify-content: center;
+    margin-left: 4px;
+    min-width: 60px;
+    padding: 0 10px;
+    position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    transition: .2s;
+    white-space: pre-wrap;
+    z-index: 0;
   }
-  a:hover {
-    color: $gold;
+  a::before {
+    content: ' ';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0.4,0.0,0.2,1);
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: $black;
+    border-radius: 4px;
+    transform: scale(0);
+    transition-property: transform,opacity;
+  }
+  a:hover::before {
+    opacity: .06;
+    transform: scale(1);
+    transition-duration: .2s;
+  }
+  a:active::before,a:focus::before {
+    opacity: .15;
+    transform: scale(1);
+    transition-duration: .2s;
   }
 }
 
@@ -94,30 +136,15 @@ nav {
 }
 /* MAIN STYLES */
 
-figure {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  figcaption {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: .5rem .5em 0;
-    h4 {
-      border-top: $gold dotted 2px;
-      padding: 0 .25rem;
-    }
-    span {
-      background: $black;
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-      color: $gray;
-      font-family: $open;
-      font-size: .75em;
-      padding: 0 .25rem;
-    }
-    span::before {
-        content: " ";
-    }
+.about {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: 1rem;
+    letter-spacing: .08ch;
+    text-transform: uppercase;
   }
 }
 
