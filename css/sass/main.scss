@@ -1,297 +1,135 @@
-$font-style: normal;
-$font-variant: normal;
-$font-weight: normal;
-$font-size: 1rem;
-$line-height: 1.5;
-$open: 'Open Sans', sans-serif;
-$source: 'Source Code Pro', monospace;
-$black: rgb(60,60,60);
-$almost-black: rgb(120,120,120);
-$gray: rgb(245,245,245);
-$gold: rgb(218,178,82);
-$blue: rgb(82,177,226);
+$black: hsl(0, 0, 15%);
+$blue: rgb(238,248,253);
+$gold: rgb(249,233,233);
 
 html {
   box-sizing: border-box;
-  color: $black;
-  font-family: $source;
+}
+
+*,*:before,*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
-  background: $gray;
-  font-size: $font-size;
-  line-height: $line-height;
-  padding: 0px;
-  margin: 0;
-}
-
-img {
-	display: block;
-	border: 0;
-  border-radius: 5px;
-	max-width: 100%;
-	height: auto;
-}
-
-.site {
-  margin: 2rem auto 0;
-}
-
-/* PHOTO GRID */
-.photo_grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-}
-
-/* TYPOGRAPGHY */
-
-h1,h2,h3,h4,h5 {
-  font-family: $open;
-  margin: 0;
-}
-
-h1 a {
   color: $black;
-  display: inline-block;
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: .08ch;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: .15s;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    letter-spacing: .08ch;
+    line-height: 1.5;
 }
 
-h1 a:hover {
-  opacity: .15;
-  transition: .2s;
+.container {
+  margin: 2rem auto 0;
+  width: 700px;
 }
-
-.nav {
-  a {
-    align-items: center;
-    border-radius: 4px;
-    color: $black;
-    display: inline-flex;
-    font-weight: 600;
-    height: 36px;
-    justify-content: center;
-    min-width: 20px;
-    padding: 0 10px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: pre-wrap;
-    z-index: 0;
-  }
-  a::before {
-    content: ' ';
-    display: block;
-    opacity: 0;
-    position: absolute;
-    transition-duration: .2s;
-    transition-timing-function: cubic-bezier(0.4,0.0,0.2,1);
-    z-index: -1;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background: $black;
-    border-radius: 4px;
-    transform: scale(0);
-    transition-property: transform,opacity;
-  }
-  a:hover::before {
-    opacity: .06;
-    transform: scale(1);
-    transition-duration: .2s;
-  }
-  a:active::before,a:focus::before {
-    opacity: .15;
-    transform: scale(1);
-    transition-duration: .2s;
-  }
-}
-
-/* HEADER & NAV STYLES */
 
 header {
-  align-items: baseline;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
+  justify-content: center;
 
-nav {
-
-  ul {
-    list-style: none;
-    padding: 0 .5rem;
-
-    li{
-      display: inline-block;
-    }
-
-    li + li {
-      padding-left: 1rem;
-    }
+  address {
+    font-style: normal;
   }
 
-  a {
-
-  }
-}
-/* MAIN STYLES */
-
-.about {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-
-  h2 {
+  .contact a {
     font-size: 1rem;
-    letter-spacing: .08ch;
-    text-transform: uppercase;
+    color: $black;
+    transition: .15s;
+  }
+  .contact a:hover {
+    color: $gold;
+    transition: .15s;
   }
 }
 
-/*.site {
-  grid-column: ;
-  grid-row: ;
-  grid-template: ;
+.name {
+  font-size: 2rem;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-*/
-header {
-  grid-area: a;
+.header-right {
+  margin: 0 0 0 2rem;
+}
+
+.avatar {
+  border-radius: 10px;
+  object-fit: contain;
+  margin-left: .5rem;
+  width: 50%;
 }
 
 main {
-  grid-area: b;
+  margin-top: 2rem;
+}
+.main-header {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0;
+  padding-left: .5rem;
+  text-transform: none;
 }
 
-aside {
-  grid-area: c;
+.job-section {
+  margin: 0 0 2.5rem 0;
+  span {
+    display: block;
+    padding-left: .5rem;
+  }
+}
+.job {
+  align-items: baseline;
+  background: $blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .25rem .5rem;
+  margin-bottom: .5rem;
+  text-transform: uppercase;
 }
 
-footer {
-  grid-area: d;
+.employer {
+  font-size: 1rem;
+  margin: 0;
+}
+.job-title {
+  font-size: 1rem;
+  margin: 0;
 }
 
-/*--------------------------------------------------------------
-If no grid support, limit width to 50em and center align
---------------------------------------------------------------*/
-/*
-@supports not (display: grid) {
-	header,
-  main,
-  aside,
-  footer {
-    background: red;
-		max-width: 50em;
-		margin: 0 auto;
-	}
-*/
-	header,
-  main,
-  aside,
-  footer {
-		max-width: 50em;
-		margin: 0 auto;
-    padding: 0 .5rem;
-	}
-
-  @media screen and (max-width: 600px) {
-    header {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav {
-      ul {
-        list-style: none;
-        padding: 0 .5rem;
-      }
-    }
-}
-
-/** OVERLAY NAVIGATION STYLES **/
-.overlay {
-height: 0%;
-width: 100%;
-position: fixed;
-z-index: 0;
-left: 0;
-top: 0;
-background-color: $gray;
-overflow-x: hidden; /* Disable horizontal scroll */
-transition: .75s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
-
-.open {
-  height: 100%;
-}
-
-.overlay-ul {
+ul {
   list-style: none;
-  li {
-    margin-bottom: 1rem;
-  }
+  padding: 0;
 }
 
-/* Position the content inside the overlay */
-.overlay-content {
-position: relative;
-top: 5rem; /* 25% from the top */
-width: 100%; /* 100% width */
-text-align: center; /* Centered text/links */
+li:nth-child(odd) {
+  background: hsl(0,0,95%);
 }
 
-/** HIDES TOP NAV TEXT LINKS **/
-@media screen and (max-width: 620px) {
-  .top-nav-ul {
-    display: none;
-    transition: 0.25s;
-  }
+li {
+  padding: .25rem .5rem;
+  margin: .5rem 0;
 }
 
-/** DISPLAYS HAMBURGER MENU FOR SMALLER SCREENS **/
-@media screen and (max-width: 620px) {
+@media (max-width: 600px) {
   header {
-    flex-direction: row;
-    align-items: baseline;
-    position: relative;
-    z-index: 1;
-  }
-  .hamburger {
-      display: inline-block;
-      cursor: pointer;
+    align-items: center;
+    flex-direction: column;
   }
 
-  .bar1, .bar2, .bar3 {
-    border-radius: 2px;
-    width: 30px;
-    height: 4px;
-    background-color: $black;
-    transition: 0.5s;
-}
-
-  .bar2 {
-    margin: 6px 0;
+  .avatar {
+    border-radius: 50%;
+  }
+  .header-right {
+    margin: 0;
   }
 
-  .change .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-      transform: rotate(-45deg) translate(-6px, 6px);
-  }
-
-  .change .bar2 {
-    opacity: 0;
-  }
-
-  .change .bar3 {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-8px, -8px);
+  .container {
+    width: 320px;
   }
 }
