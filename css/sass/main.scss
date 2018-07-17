@@ -32,6 +32,7 @@ header {
   flex-direction: row;
   justify-content: center;
 
+
   address {
     font-style: normal;
   }
@@ -58,10 +59,13 @@ header {
 }
 
 .avatar {
-  border-radius: 10px;
-  object-fit: contain;
   margin-left: .5rem;
-  width: 50%;
+  width: 100%;
+  img {
+    border-radius: 10px;
+    object-fit: contain;
+    width: 100%;
+  }
 }
 
 main {
@@ -122,7 +126,7 @@ li {
     flex-direction: column;
   }
 
-  .avatar {
+  .avatar img {
     border-radius: 50%;
   }
   .header-right {
